@@ -1,4 +1,4 @@
-// Rich text annotations used in the block content editor
+// Rich text annotations used in the block content editor.
 import annotationLinkEmail from './annotations/linkEmail'
 import annotationLinkExternal from './annotations/linkExternal'
 import annotationLinkInternal from './annotations/linkInternal'
