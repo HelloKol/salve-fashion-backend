@@ -5,7 +5,15 @@ export const DEFAULT_CURRENCY_CODE = 'USD'
 // Document types which:
 // - cannot be created in the 'new document' menu
 // - cannot be duplicated, unpublished or deleted
-export const LOCKED_DOCUMENT_TYPES = ['settings', 'home', 'media.tag']
+export const LOCKED_DOCUMENT_TYPES = [
+  'about',
+  'contact',
+  'home',
+  'login',
+  'media.tag',
+  'register',
+  'settings',
+]
 
 // Document types which:
 // - cannot be created in the 'new document' menu
@@ -15,10 +23,14 @@ export const SHOPIFY_DOCUMENT_TYPES = ['product', 'productVariant', 'collection'
 
 // References to include in 'internal' links
 export const PAGE_REFERENCES = [
+  {type: 'about'},
   {type: 'collection'},
+  {type: 'contact'},
   {type: 'home'},
+  {type: 'login'},
   {type: 'page'},
   {type: 'product'},
+  {type: 'register'},
 ]
 
 // API version to use when using the Sanity client within the studio

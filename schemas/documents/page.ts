@@ -9,10 +9,6 @@ export default defineField({
   icon: DocumentIcon,
   groups: [
     {
-      name: 'theme',
-      title: 'Theme',
-    },
-    {
       default: true,
       name: 'editorial',
       title: 'Editorial',
@@ -28,6 +24,7 @@ export default defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
+      group: 'editorial',
       validation: (Rule) => Rule.required(),
     }),
     // Slug
@@ -35,33 +32,9 @@ export default defineField({
       name: 'slug',
       type: 'slug',
       options: {source: 'title'},
+      group: 'editorial',
       // @ts-ignore - TODO - fix this TS error
       validation: validateSlug,
-    }),
-    // Color theme
-    defineField({
-      name: 'colorTheme',
-      title: 'Color theme',
-      type: 'reference',
-      to: [{type: 'colorTheme'}],
-      group: 'theme',
-    }),
-    // Show hero
-    defineField({
-      name: 'showHero',
-      title: 'Show hero',
-      type: 'boolean',
-      description: 'If disabled, page title will be displayed instead',
-      initialValue: false,
-      group: 'editorial',
-    }),
-    // Hero
-    defineField({
-      name: 'hero',
-      title: 'Hero',
-      type: 'hero.page',
-      hidden: ({document}) => !document?.showHero,
-      group: 'editorial',
     }),
     // Body
     defineField({

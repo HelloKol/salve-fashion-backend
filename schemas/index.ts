@@ -13,18 +13,21 @@ const annotations = [
 
 // Document types
 import collection from './documents/collection'
-import colorTheme from './documents/colorTheme'
 import page from './documents/page'
 import product from './documents/product'
 import productVariant from './documents/productVariant'
 
-const documents = [collection, colorTheme, page, product, productVariant]
+const documents = [collection, page, product, productVariant]
 
 // Singleton document types
+import about from './singletons/about'
+import contact from './singletons/contact'
 import home from './singletons/home'
+import login from './singletons/login'
+import register from './singletons/register'
 import settings from './singletons/settings'
 
-const singletons = [home, settings]
+const singletons = [about, contact, home, login, register, settings]
 
 // Block content
 import body from './blocks/body'

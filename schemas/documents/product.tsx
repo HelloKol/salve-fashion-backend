@@ -56,14 +56,6 @@ export default defineType({
       type: 'proxyString',
       options: {field: 'store.slug.current'},
     }),
-    // Color theme
-    defineField({
-      name: 'colorTheme',
-      title: 'Color theme',
-      type: 'reference',
-      to: [{type: 'colorTheme'}],
-      group: 'editorial',
-    }),
     defineField({
       name: 'body',
       title: 'Body',
