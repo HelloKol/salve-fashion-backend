@@ -36,46 +36,41 @@ export default defineType({
       type: 'string',
       group: 'editorial',
     }),
-    // Subtitle
+    // Image
     defineField({
-      name: 'subtitle',
-      title: 'Subtitle',
-      type: 'string',
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: {hotspot: true},
       group: 'editorial',
     }),
-    // Content Title
+    // Body
     defineField({
-      name: 'contentTitle',
-      title: 'Content Title',
-      type: 'string',
+      name: 'standfirst',
+      title: 'Standfirst',
+      type: 'body',
+      group: 'editorial',
+    }),
+    // Body
+    defineField({
+      name: 'body',
+      title: 'Body',
+      type: 'body',
+      group: 'editorial',
+    }),
+    // Images
+    defineField({
+      name: 'blockImages',
+      title: 'Text with Images',
+      type: 'module.images',
       group: 'editorial',
     }),
     // SEO
     defineField({
       name: 'seo',
       title: 'SEO',
-      type: 'object',
+      type: 'seo.home',
       group: 'seo',
-      description: 'Defaults for every page',
-      options: {
-        collapsed: false,
-        collapsible: true,
-      },
-      fields: [
-        defineField({
-          name: 'title',
-          title: 'Site title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'description',
-          title: 'Description',
-          type: 'text',
-          rows: 2,
-          validation: (Rule) =>
-            Rule.max(150).warning('Longer descriptions may be truncated by search engines'),
-        }),
-      ],
     }),
   ],
   preview: {

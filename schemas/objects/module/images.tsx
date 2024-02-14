@@ -8,6 +8,18 @@ export default defineField({
   type: 'object',
   icon: ImageIcon,
   fields: [
+    // Title
+    defineField({
+      name: 'variant',
+      title: 'Variant',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'default', value: 'default'},
+          {title: 'featured', value: 'featured'},
+        ],
+      },
+    }),
     // Modules (Images)
     defineField({
       name: 'modules',
@@ -15,42 +27,6 @@ export default defineField({
       type: 'array',
       of: [{type: 'module.image'}],
       validation: (Rule) => Rule.required().max(2),
-    }),
-    // Full width
-    defineField({
-      name: 'fullWidth',
-      title: 'Full width',
-      type: 'boolean',
-      description: 'Display single image at full width (on larger breakpoints)',
-      initialValue: false,
-      hidden: ({parent}) => parent?.modules.length > 1,
-    }),
-    // Vertical alignment
-    defineField({
-      name: 'verticalAlign',
-      title: 'Vertical alignment',
-      type: 'string',
-      initialValue: 'top',
-      options: {
-        direction: 'horizontal',
-        layout: 'radio',
-        list: [
-          {
-            title: 'Top',
-            value: 'top',
-          },
-          {
-            title: 'Center',
-            value: 'center',
-          },
-          {
-            title: 'Bottom',
-            value: 'bottom',
-          },
-        ],
-      },
-      hidden: ({parent}) => !parent?.modules || parent?.modules.length < 2,
-      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {

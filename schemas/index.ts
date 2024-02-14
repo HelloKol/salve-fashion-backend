@@ -12,22 +12,24 @@ const annotations = [
 ]
 
 // Document types
+import account from './documents/account'
 import collection from './documents/collection'
 import page from './documents/page'
 import product from './documents/product'
 import productVariant from './documents/productVariant'
 
-const documents = [collection, page, product, productVariant]
+const documents = [account, collection, page, product, productVariant]
 
 // Singleton document types
 import about from './singletons/about'
+import shop from './singletons/shop'
 import contact from './singletons/contact'
 import home from './singletons/home'
 import login from './singletons/login'
 import register from './singletons/register'
 import settings from './singletons/settings'
 
-const singletons = [about, contact, home, login, register, settings]
+const singletons = [about, shop, contact, home, login, register, settings]
 
 // Block content
 import body from './blocks/body'
@@ -44,6 +46,9 @@ import heroCollection from './objects/hero/collection'
 import heroHome from './objects/hero/home'
 import heroPage from './objects/hero/page'
 import moduleAccordion from './objects/module/accordion'
+import productFeed from './objects/module/productFeed'
+import categories from './objects/module/categories'
+import newArrivalFeed from './objects/module/newArrivalFeed'
 import moduleCallout from './objects/module/callout'
 import moduleCallToAction from './objects/module/callToAction'
 import moduleCollection from './objects/module/collection'
@@ -76,6 +81,9 @@ const objects = [
   heroHome,
   heroPage,
   moduleAccordion,
+  categories,
+  productFeed,
+  newArrivalFeed,
   moduleCallout,
   moduleCallToAction,
   moduleCollection,

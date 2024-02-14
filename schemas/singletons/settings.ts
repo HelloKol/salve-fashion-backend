@@ -19,6 +19,10 @@ export default defineType({
       title: '404 page',
     },
     {
+      name: 'searchModal',
+      title: 'Search modal',
+    },
+    {
       name: 'seo',
       title: 'SEO',
     },
@@ -82,6 +86,26 @@ export default defineType({
           title: 'Body',
           type: 'text',
           rows: 2,
+        }),
+      ],
+    }),
+    // Search modal content
+    defineField({
+      name: 'searchModal',
+      title: 'Search modal',
+      type: 'object',
+      group: 'searchModal',
+      fields: [
+        defineField({
+          title: 'Most Searched Products',
+          name: 'mostSearchedProducts',
+          type: 'array',
+          of: [{type: 'string'}],
+        }),
+        defineField({
+          name: 'predictiveSearchQuery',
+          title: 'Predictive search query',
+          type: 'string',
         }),
       ],
     }),

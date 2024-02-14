@@ -1,14 +1,12 @@
-import {InfoOutlineIcon} from '@sanity/icons'
-import {defineType, defineField} from 'sanity'
+import {DocumentIcon} from '@sanity/icons'
+import {defineField} from 'sanity'
 import {validateSlug} from '../../utils/validateSlug'
 
-const TITLE = 'Contact'
-
-export default defineType({
-  name: 'contact',
+export default defineField({
+  name: 'account',
+  title: 'Account',
   type: 'document',
-  title: TITLE,
-  icon: InfoOutlineIcon,
+  icon: DocumentIcon,
   groups: [
     {
       default: true,
@@ -21,14 +19,6 @@ export default defineType({
     },
   ],
   fields: [
-    // Slug
-    defineField({
-      name: 'slug',
-      type: 'slug',
-      group: 'editorial',
-      // @ts-ignore - TODO - fix this TS error
-      validation: validateSlug,
-    }),
     // Title
     defineField({
       name: 'title',
@@ -37,30 +27,42 @@ export default defineType({
       group: 'editorial',
       validation: (Rule) => Rule.required(),
     }),
-    // Subtitle
+    // Slug
     defineField({
-      name: 'subtitle',
-      title: 'Subtitle',
-      type: 'string',
+      name: 'slug',
+      type: 'slug',
+      options: {source: 'title'},
       group: 'editorial',
+      // @ts-ignore - TODO - fix this TS error
+      validation: validateSlug,
     }),
+    // Body
     defineField({
-      name: 'blockAccordion',
-      type: 'module.accordion',
+      name: 'body',
+      title: 'Body',
+      type: 'body',
       group: 'editorial',
     }),
     // SEO
     defineField({
       name: 'seo',
       title: 'SEO',
-      type: 'seo.home',
+      type: 'seo.page',
       group: 'seo',
     }),
   ],
   preview: {
-    prepare() {
+    select: {
+      active: 'active',
+      seoImage: 'seo.image',
+      title: 'title',
+    },
+    prepare(selection) {
+      const {seoImage, title} = selection
+
       return {
-        title: TITLE,
+        media: seoImage,
+        title,
       }
     },
   },

@@ -9,6 +9,12 @@ export default defineField({
   type: 'object',
   icon: StackCompactIcon,
   fields: [
+    // Title
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    }),
     // Groups
     defineField({
       name: 'groups',

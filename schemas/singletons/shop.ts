@@ -2,13 +2,12 @@ import {InfoOutlineIcon} from '@sanity/icons'
 import {defineType, defineField} from 'sanity'
 import {validateSlug} from '../../utils/validateSlug'
 
-const TITLE = 'Contact'
+const TITLE = 'Shop'
 
 export default defineType({
-  name: 'contact',
+  name: 'shop',
   type: 'document',
   title: TITLE,
-  icon: InfoOutlineIcon,
   groups: [
     {
       default: true,
@@ -25,9 +24,10 @@ export default defineType({
     defineField({
       name: 'slug',
       type: 'slug',
+      options: {source: 'title'},
       group: 'editorial',
       // @ts-ignore - TODO - fix this TS error
-      validation: validateSlug,
+      // validation: validateSlug,
     }),
     // Title
     defineField({
@@ -35,7 +35,6 @@ export default defineType({
       title: 'Title',
       type: 'string',
       group: 'editorial',
-      validation: (Rule) => Rule.required(),
     }),
     // Subtitle
     defineField({
@@ -44,9 +43,18 @@ export default defineType({
       type: 'string',
       group: 'editorial',
     }),
+    // Body
     defineField({
-      name: 'blockAccordion',
-      type: 'module.accordion',
+      name: 'body',
+      title: 'Body',
+      type: 'body',
+      group: 'editorial',
+    }),
+    defineField({
+      title: 'Suggested Search',
+      name: 'suggestedSearch',
+      type: 'array',
+      of: [{type: 'string'}],
       group: 'editorial',
     }),
     // SEO
@@ -58,9 +66,13 @@ export default defineType({
     }),
   ],
   preview: {
-    prepare() {
+    select: {
+      subtitle: 'subtitle',
+    },
+    prepare(selection) {
+      const {subtitle} = selection
       return {
-        title: TITLE,
+        title: subtitle,
       }
     },
   },

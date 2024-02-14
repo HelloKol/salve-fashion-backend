@@ -14,7 +14,6 @@ export default defineField({
       title: 'Title',
       name: 'title',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     },
     // Reference
     {

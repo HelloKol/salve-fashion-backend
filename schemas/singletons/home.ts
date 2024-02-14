@@ -20,13 +20,6 @@ export default defineField({
     },
   ],
   fields: [
-    {
-      name: 'body',
-      type: 'array',
-      title: 'Body',
-      of: [{type: 'block'}, {type: 'image'}],
-      group: 'editorial',
-    },
     // Hero
     defineField({
       name: 'hero',
@@ -34,34 +27,39 @@ export default defineField({
       type: 'hero.home',
       group: 'editorial',
     }),
-    // Collections
+    // Product Feed
     defineField({
-      name: 'collections',
-      title: 'Collections',
-      type: 'array',
-      of: [
-        {
-          name: 'collection',
-          title: 'Collection',
-          type: 'reference',
-          weak: true,
-          to: [{type: 'collection'}],
-          validation: (Rule) => Rule.required(),
-        },
-      ],
+      name: 'productFeedMen',
+      title: 'Product Feed',
+      type: 'module.productFeed',
       group: 'editorial',
     }),
-    // Modules
+    // New arrivals Feed
     defineField({
-      name: 'modules',
-      title: 'Modules',
-      type: 'array',
-      of: [
-        {type: 'module.callToAction'},
-        {type: 'module.image'},
-        {type: 'module.instagram'},
-        {type: 'module.product'},
-      ],
+      name: 'newArrivalFeed',
+      title: 'New Arrival Feed',
+      type: 'module.newArrivalFeed',
+      group: 'editorial',
+    }),
+    // Categories
+    defineField({
+      name: 'categories',
+      title: 'Categories',
+      type: 'module.categories',
+      group: 'editorial',
+    }),
+    // Video
+    defineField({
+      name: 'videoUrl',
+      title: 'Video URL',
+      type: 'string',
+      group: 'editorial',
+    }),
+    // Product Feed
+    defineField({
+      name: 'productFeedWomen',
+      title: 'Product Feed',
+      type: 'module.productFeed',
       group: 'editorial',
     }),
     // SEO

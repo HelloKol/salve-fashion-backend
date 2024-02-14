@@ -2,7 +2,7 @@ import {ImageIcon} from '@sanity/icons'
 import {defineField} from 'sanity'
 
 const VARIANTS = [
-  {title: 'Simple', value: undefined},
+  {title: 'Simple', value: 'simple'},
   {title: 'Caption', value: 'caption'},
   {title: 'Call to action', value: 'callToAction'},
   {title: 'Product hotspots', value: 'productHotspots'},
@@ -21,7 +21,6 @@ export default defineField({
       title: 'Image',
       type: 'image',
       options: {hotspot: true},
-      validation: (Rule) => Rule.required(),
     }),
     // Variant
     defineField({
@@ -33,7 +32,7 @@ export default defineField({
         layout: 'radio',
         list: VARIANTS,
       },
-      initialValue: undefined,
+      initialValue: 'simple',
     }),
     // Caption
     defineField({
@@ -42,6 +41,13 @@ export default defineField({
       type: 'text',
       rows: 2,
       hidden: ({parent}) => parent.variant !== 'caption',
+    }),
+    // Body
+    defineField({
+      name: 'body',
+      title: 'Body',
+      type: 'body',
+      hidden: ({parent}) => parent.variant !== 'simple',
     }),
     // Call to action
     defineField({

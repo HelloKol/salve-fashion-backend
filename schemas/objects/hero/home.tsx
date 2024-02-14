@@ -12,30 +12,19 @@ export default defineField({
       type: 'text',
       rows: 3,
     }),
-    // Link
+    // Collections
     defineField({
-      name: 'links',
-      title: 'Link',
+      name: 'collections',
+      title: 'Collections',
       type: 'array',
-      of: [{type: 'linkInternal'}, {type: 'linkExternal'}],
-      validation: (Rule) => Rule.max(1),
-    }),
-    // Content
-    defineField({
-      name: 'content',
-      title: 'Content',
-      type: 'array',
-      validation: (Rule) => Rule.max(1),
       of: [
         {
-          name: 'productWithVariant',
-          title: 'Product with variant',
-          type: 'productWithVariant',
-        },
-        {
-          name: 'imageWithProductHotspots',
-          title: 'Image',
-          type: 'imageWithProductHotspots',
+          name: 'collection',
+          title: 'Collection',
+          type: 'reference',
+          weak: true,
+          to: [{type: 'collection'}],
+          validation: (Rule) => Rule.required(),
         },
       ],
     }),
