@@ -8,7 +8,6 @@ export default defineType({
   name: 'about',
   type: 'document',
   title: TITLE,
-  icon: InfoOutlineIcon,
   groups: [
     {
       default: true,

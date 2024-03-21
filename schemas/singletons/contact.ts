@@ -8,7 +8,6 @@ export default defineType({
   name: 'contact',
   type: 'document',
   title: TITLE,
-  icon: InfoOutlineIcon,
   groups: [
     {
       default: true,

@@ -24,6 +24,7 @@ export const SHOPIFY_DOCUMENT_TYPES = ['product', 'productVariant', 'collection'
 // References to include in 'internal' links
 export const PAGE_REFERENCES = [
   {type: 'about'},
+  {type: 'shop'},
   {type: 'collection'},
   {type: 'contact'},
   {type: 'home'},

@@ -3,6 +3,7 @@
  */
 import {ListItemBuilder, StructureResolver} from 'sanity/desk'
 import about from './aboutStructure'
+import shop from './shopStructure'
 import account from './accountStructure'
 import collections from './collectionStructure'
 import contact from './contactStructure'
@@ -43,6 +44,7 @@ const hiddenDocTypes = (listItem: ListItemBuilder) => {
     'login',
     'media.tag',
     'page',
+    'shop',
     'product',
     'productVariant',
     'register',
@@ -56,6 +58,7 @@ export const structure: StructureResolver = (S, context) =>
     .items([
       home(S, context),
       about(S, context),
+      shop(S, context),
       S.divider(),
       collections(S, context),
       products(S, context),

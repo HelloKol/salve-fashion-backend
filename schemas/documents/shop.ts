@@ -57,6 +57,13 @@ export default defineType({
       of: [{type: 'string'}],
       group: 'editorial',
     }),
+    defineField({
+      name: 'products',
+      title: 'Products',
+      type: 'array',
+      of: [{type: 'product'}], // Assuming you have a "product" schema with type 'productReference'
+      group: 'editorial',
+    }),
     // SEO
     defineField({
       name: 'seo',

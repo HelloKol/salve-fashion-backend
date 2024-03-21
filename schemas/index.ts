@@ -17,19 +17,19 @@ import collection from './documents/collection'
 import page from './documents/page'
 import product from './documents/product'
 import productVariant from './documents/productVariant'
+import shop from './documents/shop'
 
-const documents = [account, collection, page, product, productVariant]
+const documents = [account, shop, collection, page, product, productVariant]
 
 // Singleton document types
 import about from './singletons/about'
-import shop from './singletons/shop'
 import contact from './singletons/contact'
 import home from './singletons/home'
 import login from './singletons/login'
 import register from './singletons/register'
 import settings from './singletons/settings'
 
-const singletons = [about, shop, contact, home, login, register, settings]
+const singletons = [about, contact, home, login, register, settings]
 
 // Block content
 import body from './blocks/body'

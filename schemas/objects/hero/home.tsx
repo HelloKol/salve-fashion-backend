@@ -5,13 +5,6 @@ export default defineField({
   title: 'Home hero',
   type: 'object',
   fields: [
-    // Title
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'text',
-      rows: 3,
-    }),
     // Collections
     defineField({
       name: 'collections',

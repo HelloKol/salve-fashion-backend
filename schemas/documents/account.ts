@@ -1,4 +1,3 @@
-import {DocumentIcon} from '@sanity/icons'
 import {defineField} from 'sanity'
 import {validateSlug} from '../../utils/validateSlug'
 
@@ -6,7 +5,6 @@ export default defineField({
   name: 'account',
   title: 'Account',
   type: 'document',
-  icon: DocumentIcon,
   groups: [
     {
       default: true,
